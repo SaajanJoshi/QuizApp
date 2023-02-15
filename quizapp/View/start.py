@@ -19,10 +19,12 @@ class StartPage(Frame):
         self.continue_as_guest = Button(self, text="Continue to as Guest", command=self.guest_screen)
         self.continue_as_guest.grid(sticky="e", row=1, column=0)
 
-    def login_screen(self):
+    @staticmethod
+    def login_screen():
         log.info("Login button pressed")
         pass
 
+    @staticmethod
     def guest_screen(self):
         log.info("guest button pressed")
         pass
