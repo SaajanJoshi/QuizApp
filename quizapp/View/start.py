@@ -8,6 +8,7 @@ class StartPage(Frame):
     def __init__(self, parent, controller, params=None):
         super().__init__(parent)
         self.parent = parent
+        self.params = params
         self.controller = controller
         self.photo = ImageTk.PhotoImage(Image.open("Resources/quiz.jpg")
                                         .resize((650, 600), Image.ANTIALIAS))

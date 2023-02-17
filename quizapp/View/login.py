@@ -7,7 +7,7 @@ class Login(Frame):
     def __init__(self, parent, controller, params=None):
 
         super().__init__(parent)
-
+        self.params = params
         self.password = None
         self.username = None
         self.controller = controller
