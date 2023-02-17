@@ -1,30 +1,32 @@
 from tkinter import *
 from Configs import log
 from PIL import ImageTk, Image
+from .login import Login
 
 
 class StartPage(Frame):
-    def __init__(self, parent):
+    def __init__(self, parent, controller, params=None):
         super().__init__(parent)
-
+        self.parent = parent
+        self.controller = controller
         self.photo = ImageTk.PhotoImage(Image.open("Resources/quiz.jpg")
                                         .resize((650, 600), Image.ANTIALIAS))
 
-        self.label = Label(self, image=self.photo)
-        self.label.grid(row=0, column=0)
+        label = Label(self, image=self.photo)
+        label.grid()
 
-        self.login_button = Button(self, text="Continue to Login", command=self.login_screen)
-        self.login_button.grid(sticky="w", row=1, column=0)
+        login_button = Button(self, text="Continue to Login", command=self.login_screen)
+        login_button.grid(row=1, column=0, sticky='w')
 
-        self.continue_as_guest = Button(self, text="Continue to as Guest", command=self.guest_screen)
-        self.continue_as_guest.grid(sticky="e", row=1, column=0)
+        continue_as_guest = Button(self, text="Continue to as Guest", command=self.guest_screen)
+        continue_as_guest.grid(row=1, column=0, sticky='e')
 
-    @staticmethod
-    def login_screen():
+    def login_screen(self):
         log.info("Login button pressed")
-        pass
+        self.controller.show_frame(Login, self.controller)
+        self.destroy()
 
-    @staticmethod
+
     def guest_screen(self):
         log.info("guest button pressed")
         pass
