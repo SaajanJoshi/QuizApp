@@ -1,4 +1,6 @@
 from tkinter import *
+from Enum.screen import Screen
+
 
 class Dashboard(Frame):
     def __init__(self, parent, controller, params=None):
@@ -31,7 +33,6 @@ class Dashboard(Frame):
         button6.grid(row=3, column=0)
 
     def logout(self):
-        from .login import Login as login_page
         self.destroy()
-        self.controller.show_frame(login_page, self.controller)
+        self.controller.show_frame(Screen.login, self.controller)
         self.destroy()

@@ -1,6 +1,7 @@
 from tkinter import *
 from Configs import log
-from View import StartPage
+from Enum.screen import Screen
+from Enum.screenNameToObj import ScreenToObj
 
 
 class Root(Tk):
@@ -11,9 +12,10 @@ class Root(Tk):
 
         self.title('Quiz Application')
         log.info('Application Started')
-        self.show_frame(StartPage, container)
+        self.show_frame(Screen.start, container)
 
     def show_frame(self, view, main_container, params=None):
+        view = ScreenToObj.getScreen(view.value)
         frame = view(parent=main_container, controller=self, params=params)
         frame.grid(row=0, column=0, sticky=N)
 

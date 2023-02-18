@@ -1,6 +1,7 @@
 from tkinter import *
 from Configs import log
 from PIL import ImageTk, Image
+from Enum.screen import Screen
 
 
 class StartPage(Frame):
@@ -22,9 +23,8 @@ class StartPage(Frame):
         continue_as_guest.grid(row=1, column=0, sticky='e')
 
     def login_screen(self):
-        from .login import Login
         log.info("Login button pressed")
-        self.controller.show_frame(Login, self.controller)
+        self.controller.show_frame(Screen.login, self.controller)
         self.destroy()
 
     def guest_screen(self):
