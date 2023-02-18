@@ -33,6 +33,5 @@ class Dashboard(Frame):
         button6.grid(row=3, column=0)
 
     def logout(self):
-        self.destroy()
         self.controller.show_frame(Screen.login, self.controller)
         self.destroy()
