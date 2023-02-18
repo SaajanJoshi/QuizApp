@@ -1,5 +1,4 @@
 from tkinter import *
-from .dashboard import Dashboard
 from Enum import Error, Credential
 
 
@@ -30,9 +29,10 @@ class Login(Frame):
         button_login.grid(row=4, column=0)
 
     def login(self, username, password):
+        from .dashboard import Dashboard
         self.username = username
         self.password = password
-        if Credential.USERNAME.value == self.username and  Credential.PASSWORD.value == self.password:
+        if Credential.USERNAME.value == self.username and Credential.PASSWORD.value == self.password:
             self.controller.show_frame(Dashboard, self.controller,
                                        {'username': self.username, 'password': self.password})
             self.destroy()

@@ -14,7 +14,6 @@ class Root(Tk):
         self.show_frame(StartPage, container)
 
     def show_frame(self, view, main_container, params=None):
-        '''Show a frame for the given page name'''
         frame = view(parent=main_container, controller=self, params=params)
         frame.grid(row=0, column=0, sticky=N)
 
